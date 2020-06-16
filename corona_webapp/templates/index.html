@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <title>{% block title %} {% endblock %}</title>
+
+
+    <style>
+
+      *{
+        box-sizing: border-box;
+      }
+
+        #navbarSupportedContent a:hover {
+
+          background-color:rgb(14, 230, 219);
+          color: black;
+        }
+
+        #navbarSupportedContent {
+          font-size: 18px;
+        
+          padding: 2px; 
+        }
+
+        #navbarSupportedContent li{
+
+          margin: 17px;
+        }
+
+        .navbar{
+          width: 1500px;
+          height: 50px;
+          margin: auto;
+          border-radius: 21px;
+          margin-top: 7px;
+          margin-bottom: 47px;
+        }
+
+        .navbar-brand{
+          font-size: 22px;
+          margin-left: 37px;
+        }
+
+        .btn{
+          float:right;
+          border: 3px solid black;
+          width: 140px;
+          height: 37px;
+          color: black;
+          background-color: white;
+          border-radius: 15px;
+          padding:2px;
+          margin-right: 15px;
+        }
+
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Medical Status</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="Ventilators">Ventilators</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="Beds">Beds</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="Hospitals">Hospitals</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="Graphic">Graphical Representation</a>
+              </li>
+            
+          </ul>
+          <a href="admin/" class="btn">Admin Login</a>
+          
+        </div>
+      </nav>
+      {% block body %} {% endblock %}
+</body>
+</html>

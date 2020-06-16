@@ -1,0 +1,153 @@
+{% extends 'index.html' %}
+{% block title %} Try {% endblock %}
+
+{% block body %} 
+
+
+<!-- <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas id="mychart"></canvas>
+</div> -->
+    <canvas id="myChart"></canvas>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        Chart.defaults.global.defaultFontSize=14;
+        Chart.defaults.global.circumference=20;
+        Chart.defaults.global.layout;
+        
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        labels: ['Total', 'Recovered', 'Positive','Death'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['rgb(50, 219, 205)','rgb(23, 191, 101)','rgb(230, 184, 57)','rgb(255,0,0)'],
+            borderColor: 'rgb(50, 39, 71)',
+            // hoverBackgroundColor:'rgb(14, 86, 230)',
+            hoverBorderWidth:6,
+            data: [{{pat.total}},{{pat.recovered}},{{pat.total}}-{{pat.recovered}}-{{pat.death}},{{pat.death}}]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title:{
+            display:true,
+            text:'Patients Status( Meerut City)',
+            fontSize:30,
+            
+        },
+        legend:{
+            position:'right',
+            margin:744,
+        },
+        layout:{
+            padding:{
+                left:750,
+                right:50,
+                top:20,
+                bottom:0,
+            }
+        }
+    }
+});
+    </script>
+
+
+<canvas id="Chart"></canvas>
+    <script>
+        var ctx = document.getElementById('Chart').getContext('2d');
+        
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        labels: ['Total', 'No of Doctors','No of Nurses'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['rgb(50, 219, 205)','rgb(23, 191, 101)','rgb(230, 184, 57)'],
+            borderColor: 'rgb(50, 39, 71)',
+            hoverBorderWidth:6,
+            data: [{{hos.total}},{{hos.nodoctor}},{{hos.nonurse}}]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title:{
+            display:true,
+            text:'Percentage Patients Status( Meerut City)',
+            fontSize:30,
+            
+        },
+        legend:{
+            hidden:true,
+            // position:'left',
+            margin:144,
+        },
+        layout:{
+            padding:{
+                left:0,
+                right:500,
+                top:20,
+                bottom:0,
+            }
+        }
+    }
+});
+</script>
+
+<canvas id="Chart2"></canvas>
+    <script>
+        var ctx = document.getElementById('Chart2').getContext('2d');
+        
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        labels: ['Total', 'No of Doctors','No of Nurses'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['rgb(50, 219, 205)','rgb(23, 191, 101)','rgb(230, 184, 57)'],
+            borderColor: 'rgb(50, 39, 71)',
+            // hoverBackgroundColor:'rgb(14, 86, 230)',
+            hoverBorderWidth:6,
+            data: [{{hos.total}},{{hos.nodoctor}},{{hos.nonurse}}]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title:{
+            display:true,
+            text:'Percentage Patients Status( Meerut City)',
+            fontSize:30,
+            
+        },
+        legend:{
+            hidden:true,
+            // position:'left',
+            margin:144,
+        },
+        layout:{
+            padding:{
+                left:0,
+                right:500,
+                top:20,
+                bottom:0,
+            }
+        }
+    }
+});
+</script>
+
+
+    
+    {% endblock %}

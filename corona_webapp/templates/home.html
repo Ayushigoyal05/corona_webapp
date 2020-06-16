@@ -1,0 +1,118 @@
+{% extends 'index.html' %}
+{% block title %} Try {% endblock %}
+{%  block head %}
+<style>
+    .tb{
+        border: 2px solid black;
+        margin: auto;
+        width: 800px;
+        /* margin-left: 33px;
+        margin-top: 20px; */
+        background-color: rgb(212, 211, 207);
+        grid-row: 1 / span 2;
+    }
+
+.thead{
+    color: black;
+    font-size: medium;
+    font-weight: 700;
+
+}
+table,th,td{
+    border: 4px solid black;
+  
+}
+
+.second{
+    margin-top: 20px;
+    margin-left: 60px;
+    color: rgb(38, 38, 37);
+    font-size: 40px;
+    font-weight: 500;
+
+
+}
+
+
+</style>
+{% endblock %}
+{% block body %} 
+
+
+<p class="second">Patients Status</p>
+
+<table class="tb" >
+    <tr class="trow">
+        <th class="thead"> DATE </th>
+        <th class="thead">TOTAL PATIENT</th>
+        <th class="thead">RECOVERED PATIENT</th>
+        <th class="thead">POSITIVE PATIENTS</th>
+        <th class="thead">NO. OF DEATHS</th>
+    </tr>
+    {% for item in pat2 %}
+    <tr>
+        <td class="tcol">{{item.date}}</td>
+        <td class="tcol">{{item.total}}</td>
+        <td class="tcol">{{item.recovered}}</td>
+        <td class="tcol">{{item.positive}}</td>
+        <td class="tcol">{{item.death}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+<!-- <div class="chart-container" style="position: relative; height:40vh; width:80vw">
+    <canvas id="mychart"></canvas>
+</div> -->
+
+    <!-- <canvas id="myChart"></canvas>
+
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        Chart.defaults.global.defaultFontSize=14;
+        Chart.defaults.global.circumference=20;
+        Chart.defaults.global.layout;
+        
+    var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'pie',
+
+    // The data for our dataset
+    data: {
+        labels: ['Total', 'Recovered', 'Positive','Death'],
+        datasets: [{
+            label: 'My First dataset',
+            backgroundColor: ['rgb(50, 219, 205)','rgb(23, 191, 101)','rgb(230, 184, 57)','rgb(255,0,0)'],
+            borderColor: 'rgb(50, 39, 71)',
+            // hoverBackgroundColor:'rgb(14, 86, 230)',
+            hoverBorderWidth:6,
+            data: [{{pat.total}},{{pat.recovered}},{{pat.total}}-{{pat.recovered}}-{{pat.death}},{{pat.death}}]
+        }]
+    },
+
+    // Configuration options go here
+    options: {
+        title:{
+            display:true,
+            text:'Patients Status( Meerut City)',
+            fontSize:30,
+            
+        },
+        legend:{
+            position:'right',
+            margin:744,
+        },
+        layout:{
+            padding:{
+                left:750,
+                right:50,
+                top:20,
+                bottom:0,
+            }
+        }
+    }
+});
+    </script> -->
+    
+    {% endblock %}
